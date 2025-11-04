@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - uses: docker/build-push-action@v6
-    - name: Build the Docker image
+    - name: docker image
       run: docker build . --file Dockerfile --tag hello-world:latest
     - name: Build the Docker image
     - uses: MaximilianoBz/dockerhub-buildpush@v1.1
