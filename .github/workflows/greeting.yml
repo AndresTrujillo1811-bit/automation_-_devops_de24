@@ -2,7 +2,6 @@
 
 name: greeting_jobs
 
-# Controls when the workflow will run
 on:
   workflow_dispatch:
 
@@ -10,7 +9,6 @@ env:
   DAY: Monday
   Name: Andres
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
    greeting_job:
     runs-on: ubuntu-latest
@@ -21,6 +19,5 @@ jobs:
       - name: "Its Monday!"
         run: echo "$Greeting $Name!. Its $DAY!"
 
-      # Runs a set of commands using the runners shell
       - name: "I like mondays"
         run: echo "$Greeting, $Name you like $DAY"
