@@ -24,11 +24,12 @@ jobs:
     - name: build and push to docker hub
       uses: docker/build-push-action@v6
       with:
-         context: ./python_flask
-         file: ./python_flask/Dockerfile
+         context: .
+         file: ./Dockerfile
          push: true
          tags: |
           hello-world:latest
+          
      
     
   
