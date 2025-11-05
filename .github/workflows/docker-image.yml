@@ -28,8 +28,8 @@ jobs:
          file: ./Dockerfile
          push: true
          tags: | 
-           andres18/hello-world:latest
-           andres18/hello-world:1.0
+           andr18/hello-world:latest
+           andr18/hello-world:1.0
           
       
 
