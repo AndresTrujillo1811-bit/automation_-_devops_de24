@@ -1,0 +1,26 @@
+# Labb - Workflow Dispatch, If-satser och Needs
+
+# 1a) Lägg till en workflow_dispatch-trigger som tar in minst en input (till exempel sträng)  
+name: Andres - labb_2
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+     inputs:
+        enviroment:
+          description: "My name is Andres"
+          required: true
+          default: "Hello from Workflow, Andres!"
+
+# b) Lägg till ett jobb som kör ett skript som visar upp värdet från inputen. 
+
+jobs:
+  message:
+    runs-on: ubuntu-latest
+    steps:
+    -  name: Show imput
+       run: echo "You wrote ${{ github.event.inputs.enviroment }}"
+    
+
+        
