@@ -4,8 +4,6 @@
 name: Andres - labb_2
 
 on:
-  push:
-    branches: [ "main" ]
   workflow_dispatch:
      inputs:
        message:
@@ -20,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     -  name: Show imput
-       run: echo "You wrote: ${{ github.event.inputs.message }}"
+       run: echo "You wrote:${{ github.event.inputs.message }}"
     
 
         
