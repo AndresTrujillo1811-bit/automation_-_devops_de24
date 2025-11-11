@@ -1,6 +1,7 @@
 # Labb - Workflow Dispatch, If-satser och Needs
 
 # 1a) Lägg till en workflow_dispatch-trigger som tar in minst en input (till exempel sträng)  
+
 name: Andres - labb_2
 
 on:
@@ -12,6 +13,7 @@ on:
           default: "Hello from Workflow, Andres!"
 
 # b) Lägg till ett jobb som kör ett skript som visar upp värdet från inputen. 
+# 2b) Lägg till två steg: Ett som bara körs om variabel == ett bestämt värde, och ett som bara körs om variabel == något annat
 
 jobs:
   show-input:
@@ -19,6 +21,14 @@ jobs:
     steps:
     -  name: Show imput
        run: echo "You wrote:${{ github.event.inputs.message }}"
+       
+    -  name: if its a variable == "hello"
+       if: ${{ github.event.inputs.variable == "hello" }}
+       run: echo "The variable is 'hello'"
+       
+    -  name: if its not a variable != "hello" 
+       if: ${{ github.event.inputs.variable != "hello" }}
+       run: echo "The variable is something else than 'hello'"
     
 
         
