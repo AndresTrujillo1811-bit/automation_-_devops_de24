@@ -5,22 +5,35 @@ name: labb_2
 on: 
   workflow_dispatch: 
     inputs: 
-      variable:
+      run_test:
+        type: boolean
         description: "Write a message"
         required: true
-        default: "hello"
+        default: true
         
-jobs: 
-  check-input:
+        
+jobs:
+  tests:
     runs-on: ubuntu-latest
+    if: ${{  github.event.input.run_test == 'true' }}
     steps: 
-      - name: "Check imput"
-        run: echo "You wrote:${{ github.event.inputs.variable }}"
+      - name: "Running tests"
+        run: echo "Running all tests"
 
-      - name: Runs if variable == 'hello'
-        if: ${{ github.event.inputs.variable == 'hello' }}
-        run: echo "You typed hello!"
+      - name: Runs all the time
+        if: ${{ always() }}
+        run: echo "This test is running always"
 
-      - name: Runs if variable != 'hello'
-        if: ${{ github.event.inputs.variable != 'hello' }}
-        run: echo "You typed something else!"
+  build: 
+    runs-on: ubuntu-latest
+    needs: tests
+    steps: 
+      - name: Building project
+        run: echo "Project builds..."
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploying project
+        run: echo "Deploying project"
