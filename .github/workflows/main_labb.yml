@@ -17,10 +17,10 @@ jobs:
       - name: "Check imput"
         run: echo "You wrote:${{ github.event.inputs.variable }}"
 
-      - name: if its a variable == "hello"
-        if: ${{ github.event.inputs.variable == "hello" }}
-        run: echo "The variable is 'hello'"
+      - name: Runs if variable == 'hello'
+        if: ${{ github.event.inputs.variable == 'hello' }}
+        run: echo "You typed hello!"
 
-      - name: if its not a variable
-        if: ${{ github.event.inputs.variable != "hello" }}
-        run: echo "The variable is something else than 'hello'"
+      - name: Runs if variable != 'hello'
+        if: ${{ github.event.inputs.variable != 'hello' }}
+        run: echo "You typed something else!"
