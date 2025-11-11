@@ -1,7 +1,5 @@
 # Labb - Workflow Dispatch, If-satser och Needs
 
-# 1a) Lägg till en workflow_dispatch-trigger som tar in minst en input (till exempel sträng)  
-
 name: Andres - labb_2
 
 on:
@@ -11,9 +9,6 @@ on:
           description: "My name is Andres"
           required: true
           default: "Hello from Workflow, Andres!"
-
-# b) Lägg till ett jobb som kör ett skript som visar upp värdet från inputen. 
-# 2b) Lägg till två steg: Ett som bara körs om variabel == ett bestämt värde, och ett som bara körs om variabel == något annat
 
 jobs:
   show-input:
