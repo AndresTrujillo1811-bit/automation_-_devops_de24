@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
      inputs:
        variable:
-          description: "My name is Andres"
-          required: true
-          default: "hello"
+         description: "My name is Andres"
+         required: true
+         default: "hello"
 
 jobs:
   check-input:
@@ -19,8 +19,8 @@ jobs:
        
       -  name: if its a variable == "hello"
          if: ${{ github.event.inputs.variable == "hello" }}
-         run: echo "The variable is "'hello' "
+         run: echo "The variable is hello"
        
       -  name: if its not a variable != "hello" 
          if: ${{ github.event.inputs.variable != "hello" }}
-         run: echo "The variable is something else than 'hello' "
+         run: echo "The variable is something else than hello"
