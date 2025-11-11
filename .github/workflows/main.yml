@@ -14,13 +14,13 @@ jobs:
   check-input:
     runs-on: ubuntu-latest
     steps:
-    -  name: Show imput
-       run: echo "You wrote:${{ github.event.inputs.variable }}"
+      -  name: Show imput
+         run: echo "You wrote:${{ github.event.inputs.variable }}"
        
-    -  name: if its a variable == 'hello'
-       if: ${{ github.event.inputs.variable == 'hello' }}
-       run: echo "The variable is hello"
+      -  name: if its a variable == 'hello'
+         if: ${{ github.event.inputs.variable == 'hello' }}
+         run: echo "The variable is hello"
        
-    -  name: if its not a variable != 'hello' 
-       if: ${{ github.event.inputs.variable != 'hello' }}
-       run: echo "The variable is something else than hello'
+      -  name: if its not a variable != 'hello' 
+         if: ${{ github.event.inputs.variable != 'hello' }}
+         run: echo "The variable is something else than hello'
