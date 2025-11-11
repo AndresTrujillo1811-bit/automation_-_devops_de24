@@ -5,14 +5,22 @@ name: labb_2
 on: 
   workflow_dispatch: 
     inputs: 
-      message:
+      variable:
         description: "Write a message"
         required: true
-        default: "Hi from workflow"
+        default: "hello"
         
 jobs: 
-  show-input:
+  check-input:
     runs-on: ubuntu-latest
     steps: 
-      - name: "Show imput"
-        run: echo "You wrote:${{ github.event.inputs.message }}"
+      - name: "Check imput"
+        run: echo "You wrote:${{ github.event.inputs.variable }}"
+
+      - name: if its a variable == "hello"
+        if: ${{ github.event.inputs.variable == "hello" }}
+        run: echo "The variable is 'hello'"
+
+      - name: if its not a variable
+        if: ${{ github.event.inputs.variable != "hello" }}
+        run: echo "The variable is something else than 'hello'"
